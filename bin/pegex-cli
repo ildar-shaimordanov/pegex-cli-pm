@@ -1,0 +1,95 @@
+#!/usr/bin/env perl
+
+=head1 NAME
+
+pegex-cli - parser implementing Pegex functionality
+
+=head1 SYNOPSIS
+
+    pegex-cli --help
+    pegex-cli --version
+    pegex-cli COMMAND [OPTIONS]
+
+=head1 DESCRIPTION
+
+This command line tool parses the input using Pegex modules and Pegex 
+grammar files. Modules can provide additional command line options 
+extending functionality of the program. 
+
+=head1 COMMANDS
+
+The list and short description of the commands are available by the 
+command:
+
+    pegex-cli help
+
+Each command implements its own set of options. Try the next command to 
+learn more about the I<COMMAND> options:
+
+    pegex-cli help COMMAND
+
+=head1 OPTIONS
+
+=head2 Common Options
+
+=over 4
+
+=item B<-h>, B<--help>
+
+Print this help message and exit.
+
+=item B<--version>
+
+Print the program version and exit.
+
+=back
+
+=head1 SEE ALSO
+
+=over 4
+
+=item L<Pegex>
+
+=item L<Pegex::API>
+
+=item L<Pegex::Syntax>
+
+=item L<Pegex::Tutorial>
+
+=item L<App::CLI>
+
+=back
+
+=head1 AUTHORS
+
+=over 4
+
+=item Ildar Shaimordanov
+
+=back
+
+=head1 COPYRIGHT
+
+Copyright 2017, 2018, 2020 Ildar Shaimordanov E<lt>ildar.shaimordanov@gmail.comE<gt>
+
+This program is free software; you can redistribute it and/or modify it 
+under the same terms as Perl itself.
+
+=cut
+
+use strict;
+use warnings;
+
+use FindBin;
+
+use lib "$FindBin::Bin/../inc";
+use lib "$FindBin::Bin/../lib";
+
+# =========================================================================
+
+use Pegex::App::CLI;
+Pegex::App::CLI->dispatch;
+
+# =========================================================================
+
+# EOF
