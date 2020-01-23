@@ -72,6 +72,14 @@ sub get_command_name {
 	lc $command;
 }
 
+# Read STDIN or a file(s) as @ARGV.
+# Overwrite it, if you need something more specific.
+
+sub read_input {
+	local $/;
+	<>;
+}
+
 sub run {
 	my $self = shift;
 
@@ -93,7 +101,7 @@ sub run {
 	my ( $method ) = grep { $module->can($_) } qw(load run)
 		or die "Can't invoke $module->load() or $module->run() for $syntax\n";
 
-	my $input = do { local $/; <> };
+	my $input = $self->read_input;
 	my $output = $module->$method($input);
 
 	return unless defined $output;
