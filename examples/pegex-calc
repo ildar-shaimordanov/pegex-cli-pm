@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+MYDIR="$( dirname "$0" )"
+
+perl -I"$MYDIR/lib" "$MYDIR/../bin/pegex-cli" run --syntax=Calc $@
